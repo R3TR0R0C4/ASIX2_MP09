@@ -115,6 +115,7 @@
                 <li><?= $book["name"] ?>  Autor: <?= $book["author"] ?> Release Year: <?= $book["releaseYear"] ?></li>
             <?php endforeach; ?>
         </ul>
+
     </body>
 </html>
 
