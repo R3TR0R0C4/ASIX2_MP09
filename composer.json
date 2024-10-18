@@ -1,0 +1,20 @@
+{
+    "name": "nroca/asix2_mp09",
+    "description": "Projecte PHP ASIX",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "R3TR0R0C4",
+            "email": "nicoroca04@gmail.com"
+        }
+    ]
+}
