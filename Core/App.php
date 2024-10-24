@@ -18,7 +18,7 @@ class App{
     public static function get($key){
         //mirem si la key no existeix per llançar error
         if(!array_key_exists($key, static::$container)){
-            throw new Exception("No key '{$key}' in container}'");
+            throw new Exception("No key '{$key}' is bound in container");
         }
 
         //retornem contenidor
