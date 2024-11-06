@@ -24,23 +24,34 @@ class Route
     }
 
     //funcio per redirigir la url solicitada a un controlador
-    public function redirect($uri)
-    {
-        //si la ruta no existeix redirigim a la vista d'error
-        if(!array_key_exists($uri, $this->routes)) {
-            //retornem vista
-            require '../resources/views/errors/404.blade.php';
-            //retornem ruta
-            return $this;
-        }
+    public function redirect($uri){
+        foreach ($this->routes as $route => $action){
+            $pattern = preg_replace('/\{[^\/]+\}/','([^/]+)', $route);
+            $patter = "#^$pattern$#i";
+            if(preg_match($patter, $uri, $matches)){
+                array_shift($matches);
 
-        //si no troba el controlador
-        if (!file_exists($this->routes[$uri])) {
-            throw new RuntimeException("No s'ha trobat el controlador:". $this->routes[$uri]);
+                list($controller, $action) = explode('@', $action);
+
+                $controllerClass = 'App\\Controllers\\' . basename($controller, '.php');
+
+                if(!class_exists($controllerClass)){
+                    throw new RuntimeException("Controller $controllerClass not found");
+                }
+
+                $controller = new $controllerClass();
+
+                if (!method_exists($controller, $action)) {
+                    throw new RuntimeException("Action $action not found in controller $controllerClass");
+                }
+
+                return $controller->$action(...$matches);
+            }
         }
 
         //retornem les rutes
-        return require $this->routes[$uri];
+        require '../resources/views/errors/404.blade.php';
+        return require $this;
     }
 
 

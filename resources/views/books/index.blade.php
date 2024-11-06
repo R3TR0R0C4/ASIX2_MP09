@@ -16,6 +16,7 @@
 </h1>
 
 <p>Llista de llibres:</p>
+<a href="/books/create">Crear Llibres</a><br></br>
 <div>
     <table border="1">
         <thead>
