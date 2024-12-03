@@ -8,8 +8,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Core\\": "Core/",
-            "App\\": "App/"
+            "Core\\": "Core/"
         },
     "files": [
         "Core/helpers.php"

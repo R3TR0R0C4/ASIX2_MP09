@@ -17,7 +17,7 @@
 
 <p>Llista de llibres:</p>
 <div>
-    <table border="1">
+    <table border="1"> <!-- Added border for visibility -->
         <thead>
         <tr>
             <th>Id</th>

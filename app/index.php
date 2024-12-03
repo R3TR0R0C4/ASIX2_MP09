@@ -51,7 +51,7 @@ $var3 = $var1 + $var2;
 //    //Creem array
 //    $filteredYears= [];
 //    foreach ($books as $book){
-//        if ($bookcreateImmutable['releaseYear']>$year){
+//        if ($book['releaseYear']>$year){
 //            $filteredYears[] = $book;
 //        }
 //    }
