@@ -17,14 +17,14 @@ class LeaksController {
         $name = $_POST['name'];
         $company = $_POST['company'];
         $leakDate = $_POST['leak_date'];
-        $lines = $_POST['lines'];
+        $leak_lines = $_POST['leak_lines'];
         $sensitivityLevel = $_POST['sensitivity_level'];
 
         $newLeak = new Leak([
             'name' => $name,
             'company' => $company,
             'leak_date' => $leakDate,
-            'lines' => $lines,
+            'leak_lines' => $leak_lines,
             'sensitivity_level' => $sensitivityLevel
         ]);
         $newLeak->save();
@@ -49,7 +49,7 @@ class LeaksController {
         $leak->name = $_POST['name'];
         $leak->company = $_POST['company'];
         $leak->leak_date = $_POST['leak_date'];
-        $leak->lines = $_POST['lines'];
+        $leak->leak_lines = $_POST['leak_lines'];
         $leak->sensitivity_level = $_POST['sensitivity_level'];
         $leak->save();
         header('Location: /leaks');

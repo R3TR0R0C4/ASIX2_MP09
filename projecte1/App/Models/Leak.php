@@ -11,7 +11,7 @@ class Leak {
     public $name;
     public $company;
     public $leak_date;
-    public $lines;
+    public $leak_lines;
     public $sensitivity_level;
 
     public function __construct($data = []) {
@@ -21,7 +21,7 @@ class Leak {
         $this->name = isset($data['name']) ? $data['name'] : null;
         $this->company = isset($data['company']) ? $data['company'] : null;
         $this->leak_date = isset($data['leak_date']) ? $data['leak_date'] : null;
-        $this->lines = isset($data['lines']) ? $data['lines'] : null;
+        $this->leak_lines = isset($data['leak_lines']) ? $data['leak_lines'] : null;
         $this->sensitivity_level = $data['sensitivity_level'];
     }
 
@@ -30,21 +30,21 @@ class Leak {
 
         if ($this->id) {
             // Update existing book
-            $statement = $db->prepare('UPDATE ' . static::$table . ' SET name = :name, company = :company, leak_date = :leak_date, lines = :lines, sensitivity_level = :sensitivity_level WHERE id = :id');
+            $statement = $db->prepare('UPDATE ' . static::$table . ' SET name = :name, company = :company, leak_date = :leak_date, leak_lines = :leak_lines, sensitivity_level = :sensitivity_level WHERE id = :id');
             $statement->bindValue(':id', $this->id);
             $statement->bindValue(':name', $this->name);
             $statement->bindValue(':company', $this->company);
             $statement->bindValue(':leak_date', $this->leak_date);
-            $statement->bindValue(':lines', $this->lines);
+            $statement->bindValue(':leak_lines', $this->leak_lines);
             $statement->bindValue(':sensitivity_level', $this->sensitivity_level);
             $statement->execute();
         } else {
             // Insert new book
-            $statement = $db->prepare('INSERT INTO ' . static::$table . ' (name, company, leak_date, lines, sensitivity_level) VALUES (:name, :company, :leak_date, :lines, :sensitivity_level)');
+            $statement = $db->prepare('INSERT INTO ' . static::$table . ' (name, company, leak_date, leak_lines, sensitivity_level) VALUES (:name, :company, :leak_date, :leak_lines, :sensitivity_level)');
             $statement->bindValue(':name', $this->name);
             $statement->bindValue(':company', $this->company);
             $statement->bindValue(':leak_date', $this->leak_date);
-            $statement->bindValue(':lines', $this->lines);
+            $statement->bindValue(':leak_lines', $this->leak_lines);
             $statement->bindValue(':sensitivity_level', $this->sensitivity_level);
             $statement->execute();
 

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Llibre</title>
+    <title>Editar Leak</title>
     <style>
         * {
             box-sizing: border-box; /* Apply box-sizing to all elements */
@@ -43,7 +43,7 @@
             color: #e0e0e0;
         }
 
-        input[type="text"], input[type="number"] {
+        input, select {
             width: 100%;
             padding: 10px;
             font-size: 16px;
@@ -54,7 +54,7 @@
             margin: 0; /* Remove margin that might be adding extra space */
         }
 
-        input[type="text"]:focus, input[type="number"]:focus {
+        input:focus, select:focus {
             outline: none;
             border-color: #bb86fc;
             background-color: #3a3a3a;
@@ -95,27 +95,35 @@
 </head>
 <body>
 <div class="container">
-    <h1>Editar llibre: <?= $book->name ?></h1>
-    <form action="/books/update/<?= $book->id ?>" method="POST">
+    <h1>Editar Leak: <?= $leak->name ?></h1>
+    <form action="/leaks/update/<?= $leak->id ?>" method="POST">
         <div>
             <label for="name">Títol</label>
-            <input type="text" name="name" id="name" value="<?= $book->name ?>">
+            <input type="text" name="name" id="name" value="<?= $leak->name ?>" required>
         </div>
         <div>
-            <label for="author">Autor</label>
-            <input type="text" name="author" id="author" value="<?= $book->author ?>">
+            <label for="company">Empresa</label>
+            <input type="text" name="company" id="company" value="<?= $leak->company ?>">
         </div>
         <div>
-            <label for="releaseYear">Any</label>
-            <input type="number" name="releaseYear" id="releaseYear" value="<?= $book->releaseYear ?>">
+            <label for="leak_date">Data de filtració</label>
+            <input type="date" name="leak_date" id="leak_date" value="<?= $leak->leak_date ?>">
         </div>
         <div>
-            <label for="genre">Gènere</label>
-            <input type="text" name="genre" id="genre" value="<?= $book->genre ?>">
+            <label for="leak_lines">Línies</label>
+            <input type="number" name="leak_lines" id="leak_lines" min="0" value="<?= $leak->leak_lines ?>">
+        </div>
+        <div>
+            <label for="sensitivity_level">Nivell de sensibilitat</label>
+            <select name="sensitivity_level" id="sensitivity_level">
+                <option value="Low" <?= $leak->sensitivity_level === 'Low' ? 'selected' : '' ?>>Baix</option>
+                <option value="Medium" <?= $leak->sensitivity_level === 'Medium' ? 'selected' : '' ?>>Mitjà</option>
+                <option value="High" <?= $leak->sensitivity_level === 'High' ? 'selected' : '' ?>>Alt</option>
+            </select>
         </div>
         <button type="submit">Editar</button>
     </form>
-    <a class="back-link" href="/books">Volver a la Llista</a>
+    <a class="back-link" href="/leaks">Volver a la Llista</a>
 </div>
 </body>
 </html>

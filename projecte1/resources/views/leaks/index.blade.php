@@ -119,7 +119,7 @@
 </head>
 <body>
 <div class="navbar">
-    <div class="logo">BDs</div>
+    <div class="logo"><a href="/">BDs</a></div>
     <div class="nav-links">
         <a href="/">Home</a>
         <a href="/books">Llibres</a>
@@ -136,7 +136,7 @@
             <th scope="col" class="name-column">Name</th>
             <th scope="col" class="company-column">Company</th>
             <th scope="col" class="date-column">Date of Leak</th>
-            <th scope="col" class="lines-column">Lines</th>
+            <th scope="col" class="leak_lines-column">leak_lines</th>
             <th scope="col" class="sensitivity-column">Sensitivity</th>
             <th scope="col" class="action-column">Actions</th>
 
@@ -149,7 +149,7 @@
             <td class="name-column"><?=$leak->name;?></td>
             <td class="company-column"><?=$leak->company;?></td>
             <td class="date-column"><?=$leak->leak_date;?></td>
-            <td class="lines-column"><?= number_format($leak->lines, 0, ',', '.'); ?></td>
+            <td class="leak_lines-column"><?= number_format($leak->leak_lines, 0, ',', '.'); ?></td>
             <td class="sensitivity-column"><?=$leak->sensitivity_level;?></td>
             <td class="action-column">
                 <div class="action-links">

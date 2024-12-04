@@ -123,8 +123,6 @@
     <p>GitHub: <a class="footer-link" href="https://github.com/R3TR0R0C4" target="_blank">R3TR0R0C4</a></p>
 </div>
 
-<footer>
-</footer>
 
 </body>
 </html>

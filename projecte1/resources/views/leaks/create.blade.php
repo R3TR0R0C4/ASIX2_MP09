@@ -90,6 +90,27 @@
         button:hover {
             background-color: #ff80ff;
         }
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgb(55, 61, 55);
+            color: white;
+            font-size: 20px;
+        }
+        #footer p {
+            margin-left: 30px;
+        }
+        .footer-link {
+            color: #bb86fc;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+            color: #ff80ff;
+        }
     </style>
 </head>
 <body>
@@ -110,8 +131,8 @@
                 <input type="date" name="leak_date" id="leak_date">
             </div>
             <div>
-                <label for="lines">Línies</label>
-                <input type="number" name="lines" id="lines" min="0">
+                <label for="leak_lines">Línies</label>
+                <input type="number" name="leak_lines" id="leak_lines" min="0">
             </div>
             <div>
                 <label for="sensitivity_level">Nivell de sensibilitat</label>
@@ -124,6 +145,8 @@
             <button type="submit">Crear</button>
         </form>
     </div>
+
+
 </section>
 </body>
 </html>

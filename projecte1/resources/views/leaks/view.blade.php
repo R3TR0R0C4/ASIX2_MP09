@@ -94,7 +94,7 @@
 <body>
 
 <div class="navbar">
-    <div class="logo">BDs</div>
+    <div class="logo"><a href="/">BDs</a></div>
     <div class="nav-links">
         <a href="/">Home</a>
         <a href="/books">Llibres</a>
@@ -109,7 +109,7 @@
     <p><strong>Títol:</strong> <?= $leak->name; ?></p>
     <p><strong>Companyia:</strong> <?= $leak->company; ?></p>
     <p><strong>Data del Leak:</strong> <?= $leak->leak_date; ?></p>
-    <p><strong>Linies:</strong> <?= number_format($leak->lines, 0, ',', '.'); ?></p>
+    <p><strong>Linies:</strong> <?= number_format($leak->leak_lines, 0, ',', '.'); ?></p>
     <p><strong>Nivell sensivilitat:</strong> <?= $leak->sensitivity_level; ?></p>
 
     <a class="back-link" href="/leaks">Volver a la Llista</a>
