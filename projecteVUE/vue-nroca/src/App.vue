@@ -1,6 +1,6 @@
 <template>
-  <urbex-header></urbex-header>
   <div id="app">
+    <app-header></app-header> <!-- Add this line -->
     <div class="hero">
       <h1>Urban Exploration Adventures</h1>
       <p class="hero-intro">
@@ -45,15 +45,25 @@
   </div>
 </template>
 
-<script>
-import UrbexHeader from './components/UrbexHeader.vue';
-import Home from '@/Home.vue'
-import About from '@/About.vue'
 
-export default {
+<script lang="ts">
+import { defineComponent, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import AppHeader from './components/UrbexHeader.vue'; // Make sure Header.vue is created
+
+export default defineComponent({
   name: 'App',
   components: {
-    UrbexHeader
-  }
-}
+    AppHeader,
+  },
+  setup() {
+    const route = useRoute();
+    // Determine if the current route is the home page
+    const isHomePage = computed(() => route.name === 'Home');
+
+    return {
+      isHomePage,
+    };
+  },
+});
 </script>

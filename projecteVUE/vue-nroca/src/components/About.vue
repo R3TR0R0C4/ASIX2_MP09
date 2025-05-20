@@ -37,13 +37,10 @@
   </div>
 </template>
 
-<script>
-import UrbexHeader from './components/UrbexHeader.vue'
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
-  name: 'About',
-  components: {
-    UrbexHeader
-  }
-}
+export default defineComponent({
+  name: 'AboutPage',
+});
 </script>

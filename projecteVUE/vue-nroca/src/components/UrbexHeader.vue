@@ -1,19 +1,19 @@
 <template>
-  <header class="urbex-header">
-    <div class="header-inner">
-      <span class="site-title">Urban Exploration Adventures</span>
-      <nav class="header-nav">
-        <router-link to="/" class="header-link">Home</router-link>
-        <router-link to="/About" class="header-link">About</router-link>
-      </nav>
-    </div>
+  <header>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav>
   </header>
 </template>
 
-<script>
-export default {
-  name: "UrbexHeader"
-};
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'AppHeader',
+});
 </script>
 
 <style scoped>
